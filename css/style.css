@@ -28,3 +28,25 @@ header {
   font-size: 14px;
   margin-bottom: 20px;
 }
+
+/* tree section */
+.allsec {
+  background-color: rgba(207, 240, 220, 0.37);
+}
+
+.trees {
+  display: grid;
+  grid-template-columns: 250px 1090px 250px;
+  justify-content: center;
+  gap: 20px;
+}
+
+/* loadbutton */
+#loadbutton {
+  background: transparent;
+  height: 40px;
+  color: #1f2937;
+  font-size: 16px;
+  font-weight: 400;
+  border: none;
+}
