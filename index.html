@@ -54,24 +54,35 @@
         Choose Your Tree
       </h1>
       <div class="trees">
-        <div class="category font-semibold lg:text-xl" id="Categories">
-          Categories
-          <button class="btn" id="allcat">All Categories</button>
-          <div id="loadcategory"></div>
-        </div>
-        <div class="choosetree grid grid-cols-3 gap-3" id="chooseSec">
-          <div class="card">
-            <img src="./assets/hero-leaf1.png" />
-            <h3 class="subtitle">Mango Tree</h3>
-            <p class="description">
-              A fast-growing tropical tree that produces delicious, juicy
-              mangoes during summer. Its dense green
-            </p>
-            <div class="fruit">
-              <h3 class="fruitTree">Fruit Tree</h3>
-              <button class="btn" id="price">৳500</button>
-            </div>
-            <button class="btn" id="cart">Add to Cart</button>
+        <div class="catchoose">
+          <div class="category font-semibold lg:text-xl" id="Categories">
+            Categories
+            <button
+              class="btn loadbutton active all-btn"
+              id="allcat"
+              onclick="chooseTrees(); addActive('all')"
+            >
+              All Categories
+            </button>
+            <div id="loadcategory"></div>
+          </div>
+          <div
+            class="choosetree grid grid-cols-1 lg:grid-cols-3 md:grid-cols-2 gap-3"
+            id="chooseSec"
+          >
+            <!-- <div class="card">
+              <img src="./assets/hero-leaf1.png" />
+              <h3 class="subtitle">Mango Tree</h3>
+              <p class="description">
+                A fast-growing tropical tree that produces delicious, juicy
+                mangoes during summer. Its dense green
+              </p>
+              <div class="fruit">
+                <h3 class="fruitTree">Fruit Tree</h3>
+                <button class="btn" id="price">৳500</button>
+              </div>
+              <button class="btn" id="cart">Add to Cart</button>
+            </div> -->
           </div>
         </div>
         <div class="cart bg-indigo-300">hi</div>

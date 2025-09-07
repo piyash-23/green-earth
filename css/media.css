@@ -4,6 +4,24 @@
     background-position: left bottom, right bottom;
     background-size: auto 50%, auto 50%;
   }
+  .trees {
+    flex-direction: column;
+  }
+  .category {
+    width: 250px;
+    margin: 0 auto;
+  }
+  .choosetree {
+    width: 90%;
+    margin: 0 auto;
+  }
+  .catchoose {
+    flex-direction: column;
+  }
+  .cart {
+    width: 250px;
+    margin: 0 auto;
+  }
 }
 
 /* medium device */
@@ -11,6 +29,26 @@
   #herosec {
     background-position: left bottom, right bottom;
     background-size: auto 60%, auto 60%;
+  }
+  .cart {
+    width: 250px;
+    margin: 0 auto;
+  }
+  .trees {
+    flex-direction: column;
+  }
+  .category {
+    width: 300px;
+    margin: 0 auto;
+    padding: 0px 10px;
+  }
+  .choosetree {
+    width: 80%;
+    margin: 0 auto;
+  }
+  .cart {
+    width: 90%;
+    margin: 0 auto;
   }
 }
 
@@ -20,5 +58,12 @@
     height: 302px;
     background-position: left bottom, right bottom;
     background-size: auto 80%, auto 80%;
+  }
+  .choosetree {
+    width: 80%;
+    margin: 0 auto;
+  }
+  .cart {
+    width: 350px;
   }
 }
