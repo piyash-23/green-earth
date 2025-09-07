@@ -1,0 +1,24 @@
+@media (max-width: 576px) {
+  #herosec {
+    height: 252px;
+    background-position: left bottom, right bottom;
+    background-size: auto 50%, auto 50%;
+  }
+}
+
+/* medium device */
+@media (min-width: 576px) and (max-width: 1024px) {
+  #herosec {
+    background-position: left bottom, right bottom;
+    background-size: auto 60%, auto 60%;
+  }
+}
+
+/* larger device */
+@media (min-width: 1024px) and (max-width: 1530px) {
+  #herosec {
+    height: 302px;
+    background-position: left bottom, right bottom;
+    background-size: auto 80%, auto 80%;
+  }
+}
