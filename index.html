@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Green Earth</title>
+    <!-- css -->
+    <link rel="stylesheet" href="./css/style.css" />
+    <link rel="stylesheet" href="./css/media.css" />
+    <!-- tailwind -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/daisyui@5"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  </head>
+  <body>
+    <header>
+      <div class="navbar shadow-sm w-[90%] mx-auto">
+        <div class="navbar-start">
+          <a class="btn btn-ghost text-xl">Green Earth</a>
+        </div>
+        <div class="navbar-center hidden lg:flex">
+          <ul class="menu menu-horizontal px-1">
+            <li><a>About</a></li>
+            <li><a href="#">Gallery</a></li>
+            <li><a>Plant a Tree</a></li>
+          </ul>
+        </div>
+        <div class="navbar-end">
+          <button class="btn btn-neutral" id="navBtn">Plant a Tree</button>
+        </div>
+      </div>
+    </header>
+
+    <!-- hero -->
+    <section class="hero" id="herosec">
+      <div class="leafs text-center">
+        <h1 class="lg:text-5xl text-3xl font-bold text-[#1F2937] mb-4">
+          Plant a Tree, Grow a Future
+        </h1>
+        <p class="font-light text-[#1F2937]" id="plant">
+          Join our mission to plant 1 million trees and make the Earth greener
+          for future generations.
+        </p>
+        <button class="btn btn-neutral" id="navBtn">Get Involved</button>
+      </div>
+    </section>
+
+    <!-- js file -->
+    <script src="./js/index.js"></script>
+  </body>
+</html>
