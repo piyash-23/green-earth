@@ -32,6 +32,7 @@ header {
 /* tree section */
 .allsec {
   background-color: rgba(207, 240, 220, 0.37);
+  padding-bottom: 30px;
 }
 
 .trees {
@@ -47,6 +48,7 @@ header {
   width: 1090px;
 }
 .cart {
+  height: 500px;
   width: 250px;
 }
 /* loadbutton */
@@ -122,4 +124,79 @@ header {
 .active {
   background-color: #15803d !important;
   color: white;
+}
+
+/* about */
+.aboutIn {
+  background-color: rgba(207, 240, 220, 0.37);
+}
+
+.impact {
+  background: #a4e6be;
+}
+
+/* form */
+.inputBox {
+  background-color: #15803d;
+}
+
+.form-container {
+  background-color: #4caf50;
+  margin: 0 auto;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  width: 650px;
+}
+.form-group {
+  margin-bottom: 20px;
+}
+.form-group label {
+  display: block;
+  color: #fff;
+  margin-bottom: 8px;
+}
+.form-group input,
+.form-group select {
+  width: 100%;
+  padding: 12px;
+  border: none;
+  background-color: #fff;
+  border-radius: 5px;
+  box-sizing: border-box;
+  outline: none;
+  font-size: 16px;
+}
+.form-group input:focus,
+.form-group select:focus {
+  outline: none !important;
+  box-shadow: 0 0 0 2px #ffd700;
+  border: none;
+}
+.btn-donate {
+  width: 100%;
+  padding: 15px;
+  background-color: #ffd700;
+  color: #15803d;
+  border: none;
+  border-radius: 2rem;
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+.btn-donate:hover {
+  background-color: #e6c200;
+}
+footer {
+  background-color: #14532d;
+  padding: 20px 0px;
+}
+.foot {
+  color: white;
+  text-align: center;
+}
+.foot p {
+  font-weight: 300;
+  font-size: 14px;
 }

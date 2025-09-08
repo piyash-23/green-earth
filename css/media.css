@@ -22,6 +22,9 @@
     width: 250px;
     margin: 0 auto;
   }
+  .form-container {
+    width: 100%;
+  }
 }
 
 /* medium device */
@@ -49,6 +52,9 @@
   .cart {
     width: 90%;
     margin: 0 auto;
+  }
+  .form-container {
+    width: 100%;
   }
 }
 

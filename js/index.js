@@ -130,6 +130,7 @@ const loadAll = (trees) => {
             <button class="btn" id="cart">Add to Cart</button>
           </div>
     `;
+    // এটা আনকমেন্ট করতে হবে
     chooseAll.appendChild(card);
   });
 };

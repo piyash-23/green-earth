@@ -88,6 +88,120 @@
         <div class="cart bg-indigo-300">hi</div>
       </div>
     </section>
+
+    <!-- about us -->
+
+    <section class="about">
+      <div class="aboutIn py-9">
+        <h1 class="text-center text-3xl lg:text-4xl font-bold">
+          About the Campaign
+        </h1>
+        <div class="hero">
+          <div class="hero-content flex-col lg:flex-row">
+            <img
+              src="./assets/about.png"
+              class="max-w-sm rounded-lg shadow-lg"
+            />
+            <div>
+              <p class="py-6 font-light text-base">
+                Green Earth is a global tree plantation initiative dedicated to
+                fighting climate change. Since our start, we’ve planted over
+                500,000 trees worldwide. By joining our campaign, you help
+                restore forests, create habitats for wildlife, and combat global
+                warming.
+              </p>
+              <ul class="list-disc ml-7 font-light text-base">
+                <li>Restoration of natural habitats</li>
+                <li>Improvement of air quality</li>
+                <li>Support for local communities</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- impact -->
+    <section class="impact">
+      <h1 class="text-center font-semibold text-3xl lg:text-4xl pt-[40px]">
+        Our Imapct
+      </h1>
+      <div
+        class="impactIn py-9 flex flex-col lg:flex-row justify-center items-center gap-5"
+      >
+        <div class="icard">
+          <div class="card bg-neutral w-96">
+            <div class="card-body items-center text-center">
+              <h2 class="card-title text-[#15803D]">500K+</h2>
+              <p>Trees Planted</p>
+            </div>
+          </div>
+        </div>
+        <div class="icard">
+          <div class="card bg-neutral w-96">
+            <div class="card-body items-center text-center">
+              <h2 class="card-title text-[#15803D]">120+</h2>
+              <p>Communities Involved</p>
+            </div>
+          </div>
+        </div>
+        <div class="icard">
+          <div class="card bg-neutral w-96">
+            <div class="card-body items-center text-center">
+              <h2 class="card-title text-[#15803D]">30+</h2>
+              <p>Countries Reached</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- input sec -->
+    <section class="inputBox flex justify-center">
+      <div class="inputIn py-10">
+        <h1 class="text-center font-bold text-white text-2xl lg:text-4xl py-6">
+          Plant A Tree Today
+        </h1>
+        <div class="form-container">
+          <form action="#" method="post">
+            <div class="form-group">
+              <input
+                type="text"
+                id="name"
+                name="name"
+                placeholder="Your Name"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <input
+                type="email"
+                id="email"
+                name="email"
+                placeholder="Your Email Address"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <select id="trees" name="trees" required>
+                <option value="" disabled selected>Number of Trees</option>
+                <option value="1">1</option>
+                <option value="5">5</option>
+                <option value="10">10</option>
+                <option value="20">20</option>
+                <option value="50">50</option>
+              </select>
+            </div>
+            <button type="submit" class="btn-donate">Donate Now</button>
+          </form>
+        </div>
+      </div>
+    </section>
+    <!-- footer -->
+    <footer>
+      <div class="foot">
+        <p>© 2025 Green Earth. All Rights Reserved.</p>
+      </div>
+    </footer>
     <!-- js file -->
     <script src="./js/index.js"></script>
   </body>
