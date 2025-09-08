@@ -32,10 +32,10 @@ const showCart = () => {
     toCart.innerHTML = `
     <div class="showcart">
               <div class="quantity">
-                <h1 class="font-semibold">${element.name}</h1>
-                <p>৳${element.price} x ${element.quantities}</p>
+                <h1 class="font-semibold text-sm">${element.name}</h1>
+                <p class="text-xs my-1">৳${element.price} x ${element.quantities}</p>
               </div>
-              <button class="btn" id="btn-cart" onclick="deletearr(${element.id})">X</button>
+              <button class="cursor-pointer" id="btn-cart" onclick="deletearr(${element.id})">X</button>
             </div>`;
     addCart.appendChild(toCart);
     total += element.price * element.quantities;
@@ -92,6 +92,31 @@ const chooseTrees = () => {
     });
 };
 
+// modal box
+
+const loadMyModal = async (id) => {
+  const url = `https://openapi.programming-hero.com/api/plant/${id}`;
+  const response = await fetch(url);
+  const detail = await response.json();
+  displayModal(detail.plants);
+};
+const displayModal = (tree) => {
+  // console.log(tree);
+  const modalBOx = document.getElementById("modalBOx");
+  // modalBOx.innerHTML = "hehe js theika aisi";
+  modalBOx.innerHTML = `
+  <div ><img class="aspect-3/2 object-cover rounded-lg" src ="${tree.image}"/></div>
+          <div>
+            <p class="font-bold text-3xl my-5">${tree.name}</p>
+          </div>
+          <div>
+            <p>${tree.description}</p>
+          </div>
+          <div>
+            <p class="font-semibold text-lg my-5">${tree.category}</p>
+          </div>`;
+  document.getElementById("tree_modal").showModal();
+};
 addToCart();
 // for using all card
 const allCard = (tree) => {
@@ -103,7 +128,7 @@ const allCard = (tree) => {
               ${tree.description}
             </p>
             <div class="fruit">
-              <h3 class="fruitTree">${tree.category}</h3>
+              <h3 class="fruitTree cursor-pointer" onclick="loadMyModal(${tree.id})">${tree.category}</h3>
               <button class="btn" id="price">৳${tree.price}</button>
             </div>
             <button class="btn" id="cart" onclick="addToCart(${tree.id})">Add to Cart</button>
