@@ -1,3 +1,47 @@
+let loadedTrees = [];
+let cartItems = [];
+const loadProducts = async () => {
+  const res = await fetch("https://openapi.programming-hero.com/api/plants");
+  const data = await res.json();
+  // console.log(data.plants);
+  loadedTrees = data.plants;
+};
+// add to cart funtion
+const addToCart = (id) => {
+  const item = loadedTrees.find((tree) => tree.id === id);
+  if (item) {
+    const cart = cartItems.find((el) => el.id === id);
+    if (cart) {
+      cart.quantities += 1;
+    } else {
+      cartItems.push({ ...item, quantities: 1 });
+    }
+    console.log(cartItems);
+    showCart();
+  }
+};
+const deletearr = (id) => {
+  cartItems.filter((item) => item.id !== id);
+  showCart();
+};
+
+const showCart = () => {
+  let addCart = document.querySelector(".addcart");
+  addCart.innerHTML = "";
+  cartItems.forEach((element) => {
+    let toCart = document.createElement("div");
+    toCart.innerHTML = `
+    <div class="showcart">
+              <div class="quantity">
+                <h1 class="font-semibold">${element.name}</h1>
+                <p>৳${element.price} x ${element.quantities}</p>
+              </div>
+              <button class="btn" id="btn-cart" onclick="deletearr(${element.id})">X</button>
+            </div>`;
+    addCart.appendChild(toCart);
+  });
+};
+
 //load all categories
 const categoryLoad = () => {
   fetch("https://openapi.programming-hero.com/api/categories")
@@ -50,6 +94,34 @@ const loadtrees = (id) => {
       loadbyCat(data.plants);
     });
 };
+// load choose trees
+const chooseTrees = () => {
+  fetch("https://openapi.programming-hero.com/api/plants")
+    .then((res) => res.json())
+    .then((data) => {
+      loadAll(data.plants);
+    });
+};
+
+addToCart();
+// for using all card
+const allCard = (tree) => {
+  const loadCard = `
+    <div class="card">
+            <img src="${tree.image}" id="imageBox" />
+            <h3 class="subtitle">${tree.name}</h3>
+            <p class="description">
+              ${tree.description}
+            </p>
+            <div class="fruit">
+              <h3 class="fruitTree">${tree.category}</h3>
+              <button class="btn" id="price">৳${tree.price}</button>
+            </div>
+            <button class="btn" id="cart" onclick="addToCart(${tree.id})">Add to Cart</button>
+          </div>
+    `;
+  return loadCard;
+};
 const loadbyCat = (plants) => {
   // console.log(plants);
   let chooseAll = document.getElementById("chooseSec"); // load trees
@@ -57,20 +129,7 @@ const loadbyCat = (plants) => {
   plants.forEach((plant) => {
     // console.log(plant);
     const card = document.createElement("div");
-    card.innerHTML = `
-    <div class="card">
-            <img src="${plant.image}" id="imageBox" />
-            <h3 class="subtitle">${plant.name}</h3>
-            <p class="description">
-              ${plant.description}
-            </p>
-            <div class="fruit">
-              <h3 class="fruitTree">${plant.category}</h3>
-              <button class="btn" id="price">৳${plant.price}</button>
-            </div>
-            <button class="btn" id="cart">Add to Cart</button>
-          </div>
-    `;
+    card.innerHTML = allCard(plant);
     chooseAll.appendChild(card);
   });
 };
@@ -90,15 +149,6 @@ const displayCatry = (categories) => {
   });
 };
 
-// load choose trees
-
-const chooseTrees = () => {
-  fetch("https://openapi.programming-hero.com/api/plants")
-    .then((res) => res.json())
-    .then((data) => {
-      loadAll(data.plants);
-    });
-};
 chooseTrees();
 // {
 //     "id": 24,
@@ -116,21 +166,11 @@ const loadAll = (trees) => {
   trees.forEach((tree) => {
     // console.log(tree);
     const card = document.createElement("div");
-    card.innerHTML = `
-    <div class="card">
-            <img src="${tree.image}" id="imageBox" class="mx-auto" />
-            <h3 class="subtitle">${tree.name}</h3>
-            <p class="description">
-              ${tree.description}
-            </p>
-            <div class="fruit">
-              <h3 class="fruitTree">${tree.category}</h3>
-              <button class="btn" id="price">৳${tree.price}</button>
-            </div>
-            <button class="btn" id="cart">Add to Cart</button>
-          </div>
-    `;
+    card.innerHTML = allCard(tree);
     // এটা আনকমেন্ট করতে হবে
-    chooseAll.appendChild(card);
+    // chooseAll.appendChild(card);
   });
 };
+
+loadProducts();
+addToCart();

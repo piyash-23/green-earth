@@ -48,7 +48,6 @@ header {
   width: 1090px;
 }
 .cart {
-  height: 500px;
   width: 250px;
 }
 /* loadbutton */
@@ -199,4 +198,18 @@ footer {
 .foot p {
   font-weight: 300;
   font-size: 14px;
+}
+
+/* quantity */
+.showcart {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: #a4e6be;
+  padding: 6px 10px;
+  border-radius: 8px;
+  margin-top: 10px;
+}
+#btn-cart {
+  background: transparent;
 }
