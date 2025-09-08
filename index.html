@@ -17,19 +17,51 @@
   </head>
   <body>
     <header>
-      <div class="navbar shadow-sm w-[90%] mx-auto">
+      <div class="navbar bg-[#15803D] w-[90%] mx-auto">
         <div class="navbar-start">
-          <a class="btn btn-ghost text-xl">Green Earth</a>
+          <div class="dropdown">
+            <div
+              tabindex="0"
+              role="button"
+              class="btn btn-ghost lg:hidden bg-[#15803D]"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-5 w-5"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M4 6h16M4 12h8m-8 6h16"
+                />
+              </svg>
+            </div>
+            <ul
+              tabindex="0"
+              class="menu menu-sm dropdown-content bg-[#15803D] rounded-box z-1 mt-3 w-52 p-2 shadow"
+            >
+              <li><a>About</a></li>
+              <li>
+                <a>Gallery</a>
+              </li>
+              <li><a>Plant a Tree</a></li>
+            </ul>
+          </div>
+          <a class="cursor-pointer text-xl">Green Earth</a>
         </div>
         <div class="navbar-center hidden lg:flex">
           <ul class="menu menu-horizontal px-1">
             <li><a>About</a></li>
-            <li><a href="#">Gallery</a></li>
+            <li><a>Gallery</a></li>
             <li><a>Plant a Tree</a></li>
           </ul>
         </div>
         <div class="navbar-end">
-          <button class="btn btn-neutral" id="navBtn">Plant a Tree</button>
+          <a class="btn" id="navBtn">Plant a Tree</a>
         </div>
       </div>
     </header>
@@ -89,6 +121,12 @@
           <div class="cartIn p-3">
             <h1 class="text-xl font-bold">Your Cart</h1>
             <div class="addcart"></div>
+            <div class="total">
+              <p class="font-semibold">Total</p>
+              <div class="taka">
+                <p class="sum">৳০</p>
+              </div>
+            </div>
             <!-- <div class="showcart">
               <div class="quantity">
                 <h1 class="font-semibold">Mango Tree</h1>
@@ -139,7 +177,7 @@
         Our Imapct
       </h1>
       <div
-        class="impactIn py-9 flex flex-col lg:flex-row justify-center items-center gap-5"
+        class="impactIn py-9 flex flex-col lg:flex-row flex-wrap justify-center items-center gap-5"
       >
         <div class="icard">
           <div class="card bg-neutral w-96">

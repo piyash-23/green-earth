@@ -3,7 +3,7 @@ let cartItems = [];
 const loadProducts = async () => {
   const res = await fetch("https://openapi.programming-hero.com/api/plants");
   const data = await res.json();
-  // console.log(data.plants);
+
   loadedTrees = data.plants;
 };
 // add to cart funtion
@@ -16,18 +16,17 @@ const addToCart = (id) => {
     } else {
       cartItems.push({ ...item, quantities: 1 });
     }
-    console.log(cartItems);
+
     showCart();
   }
-};
-const deletearr = (id) => {
-  cartItems.filter((item) => item.id !== id);
-  showCart();
 };
 
 const showCart = () => {
   let addCart = document.querySelector(".addcart");
   addCart.innerHTML = "";
+  let total = 0;
+  let sumBox = document.querySelector(".sum");
+  sumBox.innerHTML = "";
   cartItems.forEach((element) => {
     let toCart = document.createElement("div");
     toCart.innerHTML = `
@@ -39,7 +38,13 @@ const showCart = () => {
               <button class="btn" id="btn-cart" onclick="deletearr(${element.id})">X</button>
             </div>`;
     addCart.appendChild(toCart);
+    total += element.price * element.quantities;
+    sumBox.innerHTML = `৳${total}`;
   });
+};
+const deletearr = (id) => {
+  cartItems = cartItems.filter((item) => item.id !== id);
+  showCart();
 };
 
 //load all categories
@@ -50,33 +55,19 @@ const categoryLoad = () => {
       displayCatry(catry.categories);
     });
 };
-// {
-//     "id": 6,
-//     "category_name": "Evergreen Tree",
-//     "small_description": "Trees that remain green throughout the year."
-// }
+
 categoryLoad();
-// {
-//     "id": 1,
-//     "image": "https://i.ibb.co.com/cSQdg7tf/mango-min.jpg",
-//     "name": "Mango Tree",
-//     "description": "A fast-growing tropical tree that produces delicious, juicy mangoes during summer. Its dense green canopy offers shade, while its sweet fruits are rich in vitamins and minerals.",
-//     "category": "Fruit Tree",
-//     "price": 500
-// }
+
 const addActive = (id) => {
   if (id === "all") {
-    // প্রথম বাটনের জন্য
     removeActive();
     let allCategoriesBtn = document.getElementById("allcat");
     allCategoriesBtn.classList.add("active");
-    // চাইলে এখানে API কল এড়িয়ে যেতে পারো
     return;
   }
 };
 const removeActive = () => {
   let allBtn = document.querySelectorAll(".all-btn");
-  // console.log(allBtn);
   allBtn.forEach((btn) => {
     btn.classList.remove("active");
   });
@@ -89,8 +80,6 @@ const loadtrees = (id) => {
       let loadBtn = document.getElementById(`load-btn-${id}`);
       removeActive();
       loadBtn.classList.add("active");
-      // console.log(loadBtn);
-      // addActive();
       loadbyCat(data.plants);
     });
 };
@@ -123,11 +112,9 @@ const allCard = (tree) => {
   return loadCard;
 };
 const loadbyCat = (plants) => {
-  // console.log(plants);
   let chooseAll = document.getElementById("chooseSec"); // load trees
   chooseAll.innerHTML = "";
   plants.forEach((plant) => {
-    // console.log(plant);
     const card = document.createElement("div");
     card.innerHTML = allCard(plant);
     chooseAll.appendChild(card);
@@ -136,12 +123,10 @@ const loadbyCat = (plants) => {
 
 // displat all categories
 const displayCatry = (categories) => {
-  // console.log(categories);
   let btnCatery = document.getElementById("loadcategory");
   btnCatery.innerHTML = "";
   categories.forEach((category) => {
     let button = document.createElement("div");
-    // console.log(category);
     button.innerHTML = `
         <button class="btn all-btn loadbutton" id="load-btn-${category.id}" onclick="loadtrees(${category.id})">${category.category_name}<button>
     `;
@@ -150,25 +135,16 @@ const displayCatry = (categories) => {
 };
 
 chooseTrees();
-// {
-//     "id": 24,
-//     "image": "https://i.ibb.co.com/FL3c30KJ/giant-bamboo-min.jpg",
-//     "name": "Giant Bamboo",
-//     "description": "The tallest bamboo species, producing strong, thick stems. Useful for building materials and garden landscaping.",
-//     "category": "Bamboo",
-//     "price": 1200
-// }
 const loadAll = (trees) => {
   // console.log(trees);
   let chooseAll = document.getElementById("chooseSec");
   chooseAll.innerHTML = "";
-  // load single
+
   trees.forEach((tree) => {
-    // console.log(tree);
     const card = document.createElement("div");
     card.innerHTML = allCard(tree);
-    // এটা আনকমেন্ট করতে হবে
-    // chooseAll.appendChild(card);
+
+    chooseAll.appendChild(card);
   });
 };
 

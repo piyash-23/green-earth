@@ -49,6 +49,8 @@ header {
 }
 .cart {
   width: 250px;
+  padding: 12px 5px;
+  border-radius: 20px;
 }
 /* loadbutton */
 .loadbutton {
@@ -212,4 +214,9 @@ footer {
 }
 #btn-cart {
   background: transparent;
+}
+.total {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
 }
