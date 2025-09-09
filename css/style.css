@@ -57,8 +57,13 @@ header {
   background: transparent;
   height: 40px;
   color: #1f2937;
-  font-size: 16px;
-  font-weight: 500;
+  text-align: left;
+  border-radius: 1rem;
+  padding-left: 10px;
+  width: 90%;
+  cursor: pointer;
+  font-size: 15px;
+  font-weight: 400;
   border: none;
 }
 #allcat {
@@ -205,7 +210,7 @@ footer {
 /* quantity */
 .showcart {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
   background-color: #a4e6be;
   padding: 6px 10px;

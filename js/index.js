@@ -35,7 +35,7 @@ const showCart = () => {
                 <h1 class="font-semibold text-sm">${element.name}</h1>
                 <p class="text-xs my-1">৳${element.price} x ${element.quantities}</p>
               </div>
-              <button class="cursor-pointer" id="btn-cart" onclick="deletearr(${element.id})">X</button>
+              <button class="btn cursor-pointer" id="btn-cart" onclick="deletearr(${element.id})">X</button>
             </div>`;
     addCart.appendChild(toCart);
     total += element.price * element.quantities;
@@ -43,7 +43,19 @@ const showCart = () => {
   });
 };
 const deletearr = (id) => {
-  cartItems = cartItems.filter((item) => item.id !== id);
+  const delCart = cartItems.find((el) => el.id === id);
+
+  if (delCart) {
+    const cart = cartItems.find((p) => p.id === id);
+    if (cart) {
+      // console.log(cart);
+      if (cart.quantities > 1) {
+        cart.quantities--;
+      } else if (cart.quantities === 1) {
+        cartItems = cartItems.filter((item) => item.id !== id);
+      }
+    }
+  }
   showCart();
 };
 
@@ -56,7 +68,19 @@ const categoryLoad = () => {
     });
 };
 
-categoryLoad();
+// spinner
+
+const spinner = (status) => {
+  const loader = document.getElementById("load");
+  const chooseSec = document.getElementById("chooseSec");
+  if (status == true) {
+    loader.classList.remove("hidden");
+    chooseSec.classList.add("hidden");
+  } else {
+    loader.classList.add("hidden");
+    chooseSec.classList.remove("hidden");
+  }
+};
 
 const addActive = (id) => {
   if (id === "all") {
@@ -72,19 +96,10 @@ const removeActive = () => {
     btn.classList.remove("active");
   });
 };
-const loadtrees = (id) => {
-  const url = `https://openapi.programming-hero.com/api/category/${id}`;
-  fetch(url)
-    .then((res) => res.json())
-    .then((data) => {
-      let loadBtn = document.getElementById(`load-btn-${id}`);
-      removeActive();
-      loadBtn.classList.add("active");
-      loadbyCat(data.plants);
-    });
-};
+
 // load choose trees
 const chooseTrees = () => {
+  spinner(true);
   fetch("https://openapi.programming-hero.com/api/plants")
     .then((res) => res.json())
     .then((data) => {
@@ -105,6 +120,9 @@ const displayModal = (tree) => {
   const modalBOx = document.getElementById("modalBOx");
   // modalBOx.innerHTML = "hehe js theika aisi";
   modalBOx.innerHTML = `
+    <div>
+        <h2 class="text-lg font-semibold">Tree Number: ${tree.id}</h2>
+    </div>
   <div ><img class="aspect-3/2 object-cover rounded-lg" src ="${tree.image}"/></div>
           <div>
             <p class="font-bold text-3xl my-5">${tree.name}</p>
@@ -113,7 +131,7 @@ const displayModal = (tree) => {
             <p>${tree.description}</p>
           </div>
           <div>
-            <p class="font-semibold text-lg my-5">${tree.category}</p>
+            <p class="font-semibold text-md my-5">${tree.category}</p>
           </div>`;
   document.getElementById("tree_modal").showModal();
 };
@@ -144,22 +162,22 @@ const loadbyCat = (plants) => {
     card.innerHTML = allCard(plant);
     chooseAll.appendChild(card);
   });
+  spinner(false);
 };
 
-// displat all categories
+// display all categories
 const displayCatry = (categories) => {
   let btnCatery = document.getElementById("loadcategory");
   btnCatery.innerHTML = "";
   categories.forEach((category) => {
     let button = document.createElement("div");
     button.innerHTML = `
-        <button class="btn all-btn loadbutton" id="load-btn-${category.id}" onclick="loadtrees(${category.id})">${category.category_name}<button>
+        <button class="all-btn loadbutton text-left" id="load-btn-${category.id}" onclick="loadtrees(${category.id})">${category.category_name}<button>
     `;
     btnCatery.append(button);
   });
 };
-
-chooseTrees();
+// default card value
 const loadAll = (trees) => {
   // console.log(trees);
   let chooseAll = document.getElementById("chooseSec");
@@ -171,7 +189,25 @@ const loadAll = (trees) => {
 
     chooseAll.appendChild(card);
   });
+  spinner(false);
 };
 
+// category button after click
+
+const loadtrees = (id) => {
+  spinner(true);
+  const url = `https://openapi.programming-hero.com/api/category/${id}`;
+  fetch(url)
+    .then((res) => res.json())
+    .then((data) => {
+      let loadBtn = document.getElementById(`load-btn-${id}`);
+      removeActive();
+      loadBtn.classList.add("active");
+      loadbyCat(data.plants);
+    });
+};
+
+chooseTrees();
+categoryLoad();
 loadProducts();
 addToCart();

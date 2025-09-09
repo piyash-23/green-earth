@@ -85,6 +85,8 @@
       <h1 class="lg:text-5xl text-center py-8 font-semibold text-[#1F2937]">
         Choose Your Tree
       </h1>
+      <!-- spinner -->
+
       <div class="trees">
         <div class="catchoose">
           <div class="category font-semibold lg:text-xl" id="Categories">
@@ -97,6 +99,9 @@
               All Categories
             </button>
             <div id="loadcategory"></div>
+          </div>
+          <div id="load" class="flex justify-center items-center hidden">
+            <span class="loading loading-ring loading-xl"></span>
           </div>
           <div
             class="choosetree grid grid-cols-1 lg:grid-cols-3 md:grid-cols-2 gap-3"
